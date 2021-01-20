@@ -3,13 +3,16 @@ import random
 
 from django.shortcuts import render
 from django.http.response import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.decorators import api_view
 from rest_framework import status
 
+
 # Create your views here.
 
-@api_view(['GET'])
+@csrf_exempt
+# @api_view(['GET'])
 def index(request):
     final = []
     colors_array = []
