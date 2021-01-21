@@ -18,27 +18,27 @@ def index(request):
     colors_array = []
     selected_colors = []
     colors = {
-        "RGB": {
+        "rgb": {
             "red":255,
             "green":255,
             "blue":255
         },
-        "HSL": {
+        "hsl": {
             "hue":360,
             "saturation":100,
             "lightness":100
         },
-        "CMYK": {
-            "cyan":100,
-            "magenta":100,
-            "yellow":100,
-            "black":100
-        },
-        "BRGB": {
-            "red":10000,
-            "green":10000,
-            "blue":10000
-        }
+        # "cmyk": {
+        #     "cyan":100,
+        #     "magenta":100,
+        #     "yellow":100,
+        #     "black":100
+        # },
+        # "brgb": {
+        #     "red":10000,
+        #     "green":10000,
+        #     "blue":10000
+        # }
     }
     
     for i in colors:
@@ -52,6 +52,16 @@ def index(request):
         color_dict.update({'type':selected_color})
         for key, value in colors[selected_color].items():
             value = random.randint(0,value)
-            color_dict.update({key:value})
+            a = ""
+            if(selected_color == 'hsl' and len(color_dict)>1):
+                a = str(value) + "%"
+                # print(len(color_dict))
+                color_dict.update({key:a})
+            elif(selected_color == 'cmyk'):
+                a = str(value) + "%"
+                # print(len(color_dict))
+                color_dict.update({key:a})
+            else:
+                color_dict.update({key:value})
         final.append(color_dict)
     return JsonResponse(final, safe=False, status=status.HTTP_200_OK)
