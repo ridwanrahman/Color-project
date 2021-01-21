@@ -23,6 +23,13 @@ const useStyles = theme =>({
         fontWeight: '500',
         align: 'center',
         paddingTop: '210px'
+    },
+    colorCode: {
+        display: 'flex-wrap',
+        fontWeight: '100',
+        paddingRight:'300px',
+        // left: '200px',
+        // paddingLeft:'-90px'
     }
 });
 
@@ -39,6 +46,14 @@ class CardComponent extends React.Component {
     componentDidMount() {
     }
 
+    renderColorCode() {
+        var s = "";
+        for (var prop in this.state.inputStyle) {
+            s = this.state.inputStyle[prop];
+        }
+        return s;
+    }
+
     render() {
         const {classes} = this.props;
         this.state.colorValues = [];
@@ -49,7 +64,6 @@ class CardComponent extends React.Component {
         }
         string = string.replace(",",'(');
         string = string.replace(/,$/,")");
-        console.log(string);
         this.state.inputStyle={
             background: '' + string
         }
@@ -61,10 +75,16 @@ class CardComponent extends React.Component {
                       <CardContent>
                           <Typography className={classes.title} color="textSecondary" gutterBottom>
                               {this.props.color.type}
-                              </Typography>
-                          </CardContent>
-                      </Card>
+                        </Typography>
+                        
+                        {/* <Typography className={classes.colorCode} gutterBottom>
+                        {this.renderColorCode()}          
+                        </Typography> */}
+
+                        </CardContent>
+                    </Card>
                   </div>
+                  
             </div>
         );
     }
