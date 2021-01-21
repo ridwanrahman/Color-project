@@ -28,6 +28,7 @@ def index(request):
             "saturation":100,
             "lightness":100
         },
+        # Add new color combinations here
         # "cmyk": {
         #     "cyan":100,
         #     "magenta":100,
@@ -55,11 +56,9 @@ def index(request):
             a = ""
             if(selected_color == 'hsl' and len(color_dict)>1):
                 a = str(value) + "%"
-                # print(len(color_dict))
                 color_dict.update({key:a})
             elif(selected_color == 'cmyk'):
                 a = str(value) + "%"
-                # print(len(color_dict))
                 color_dict.update({key:a})
             else:
                 color_dict.update({key:value})
