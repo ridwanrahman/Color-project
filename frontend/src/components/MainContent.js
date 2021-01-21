@@ -4,21 +4,25 @@ import CardComponent from './CardComponent';
 
 const useStyles = theme => ({
     button: {
-        position: 'absolute',
-        right:'450px',
+        // position: 'absolute',
+        // right:'450px',
 
     },
     alignColorsAndJustifyContent: {
+        padding: '10px',
+        display:'block',
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
     },
     alignButtonAndJustifyContent: {
+        // position: 'absolute',
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        // justify:'left'
     }
 })
 
@@ -83,9 +87,9 @@ class MainComponent extends Component{
                 <div className={classes.alignColorsAndJustifyContent}>
                     {this.state.colors.map(color => <CardComponent color={color}></CardComponent>)}    
                 </div>
-                
-                <div>
-                    <Button onClick={this.buttonClick} variant="contained" color="primary" className={classes.button}>
+                <br></br>
+                <div className={classes.alignButtonAndJustifyContent}>
+                    <Button onClick={this.buttonClick} variant="contained" color="primary">
                         Regenerate
                     </Button>
                 </div>
