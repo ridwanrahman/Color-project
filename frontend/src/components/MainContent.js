@@ -7,6 +7,18 @@ const useStyles = theme => ({
         position: 'absolute',
         right:'450px',
 
+    },
+    alignColorsAndJustifyContent: {
+        margin: 'auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    alignButtonAndJustifyContent: {
+        margin: 'auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
 
@@ -68,14 +80,15 @@ class MainComponent extends Component{
         const {classes} = this.props;
         return (
             <div>
-                <p>You clicked {this.state.count} times</p>
-
-                {this.state.colors.map(color => <CardComponent color={color}></CardComponent>)}
-                <br></br>
+                <div className={classes.alignColorsAndJustifyContent}>
+                    {this.state.colors.map(color => <CardComponent color={color}></CardComponent>)}    
+                </div>
                 
-                <Button onClick={this.buttonClick} variant="contained" color="primary" className={classes.button}>
-                    Regenerate
-                </Button>
+                <div>
+                    <Button onClick={this.buttonClick} variant="contained" color="primary" className={classes.button}>
+                        Regenerate
+                    </Button>
+                </div>
             </div>
         )
     }
