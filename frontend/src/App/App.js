@@ -21,12 +21,6 @@ function App() {
     <Header></Header>
     
     <MainContent></MainContent>
-      {/* <div className={classes.parent}>
-        <div className={classes.box}>One</div>
-        <div className={classes.box}>Two</div>
-        <div className={classes.box}>Three</div>
-        <div className={classes.box}>Four</div>
-      </div> */}
     </>
   );
 }

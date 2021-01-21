@@ -1,6 +1,6 @@
 import { Button, Fade, Modal, withStyles } from '@material-ui/core';
 import React, {Component} from 'react'
-import Backdrop from '@material-ui/core/Backdrop';
+import CardComponent from './CardComponent';
 
 const useStyles = theme => ({
     button: {
@@ -67,7 +67,16 @@ class MainComponent extends Component{
     render() {
         const {classes} = this.props;
         return (
+            <div>
+                <p>You clicked {this.state.count} times</p>
 
+                {this.state.colors.map(color => <CardComponent color={color}></CardComponent>)}
+                <br></br>
+                
+                <Button onClick={this.buttonClick} variant="contained" color="primary" className={classes.button}>
+                    Regenerate
+                </Button>
+            </div>
         )
     }
 }
