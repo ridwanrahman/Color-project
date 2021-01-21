@@ -3,11 +3,6 @@ import React, {Component} from 'react'
 import CardComponent from './CardComponent';
 
 const useStyles = theme => ({
-    button: {
-        // position: 'absolute',
-        // right:'450px',
-
-    },
     alignColorsAndJustifyContent: {
         padding: '10px',
         display:'block',
@@ -17,12 +12,10 @@ const useStyles = theme => ({
         justifyContent: 'center'
     },
     alignButtonAndJustifyContent: {
-        // position: 'absolute',
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        // justify:'left'
     }
 })
 
@@ -36,7 +29,6 @@ class MainComponent extends Component{
         };
         this.buttonClick = this.buttonClick.bind(this);
     }
-    
 
     getData() {
         console.log("getting data");
@@ -54,30 +46,8 @@ class MainComponent extends Component{
         this.getData();
     }
 
-    componentWillMount() {
-        
-    }
-
     componentDidMount(){
         this.getData();
-    }
-
-    renderColors(){
-        console.log("herer");
-        this.state.justColors = [];
-        for(let i=0;i<this.state.colors.length;i++) {
-            // console.log(this.state.colors[i]);
-            // <CardComponent value={this.state.colors[i]}></CardComponent>
-            for (const property in this.state.colors[i]) {
-                // console.log(`${property}: ${this.state.colors[i][property]}`);
-                if(property == 'type') {
-                    continue;
-                }
-                this.state.justColors.push(this.state.colors[i][property]);
-              }
-            
-        }
-        console.log(this.state.justColors);
     }
 
     render() {
