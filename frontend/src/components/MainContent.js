@@ -46,9 +46,28 @@ class MainComponent extends Component{
         this.getData();
     }
 
+    renderColors(){
+        console.log("herer");
+        this.state.justColors = [];
+        for(let i=0;i<this.state.colors.length;i++) {
+            // console.log(this.state.colors[i]);
+            // <CardComponent value={this.state.colors[i]}></CardComponent>
+            for (const property in this.state.colors[i]) {
+                // console.log(`${property}: ${this.state.colors[i][property]}`);
+                if(property == 'type') {
+                    continue;
+                }
+                this.state.justColors.push(this.state.colors[i][property]);
+              }
+            
+        }
+        console.log(this.state.justColors);
+    }
+
     render() {
         const {classes} = this.props;
         return (
+
         )
     }
 }
